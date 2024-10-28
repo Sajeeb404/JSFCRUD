@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>User Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+
+</h:head>
+<div class="container" style="margin-top: 50px;">
+    <div style="display: flex; justify-content: center;">
+        <h:form id="form" class="form-horizontal" style="width: 400px; margin: auto;">
+
+            <div class="form-group text-center">
+                <h2>Provide Following Details</h2>
+            </div>
+            <hr/>
+
+            <div class="form-group">
+                <h:outputLabel for="name-id" class="control-label">User Name</h:outputLabel>
+                <h:inputText id="name-id" value="#{editUser.name}" class="form-control" required="true"
+                             requiredMessage="User name is required">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="name-id" style="color:red;"></h:message>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="email-id" class="control-label">Your Email</h:outputLabel>
+                <h:inputText id="email-id" value="#{editUser.email}" class="form-control" required="true"
+                             requiredMessage="Email Id is required">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="email-id" style="color:red;"></h:message>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="password-id" class="control-label">Password</h:outputLabel>
+                <h:inputSecret id="password-id" value="#{editUser.password}" class="form-control" required="true"
+                               requiredMessage="Password is required">
+                    <f:validateRequired />
+                </h:inputSecret>
+                <h:message for="password-id" style="color:red;"></h:message>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="gender" class="control-label">Gender</h:outputLabel>
+                <h:selectOneRadio id="gender" value="#{editUser.gender}" required="true" requiredMessage="Gender is required">
+                    <f:selectItem itemValue="Male" itemLabel="Male" />
+                    <f:selectItem itemValue="Female" itemLabel="Female" />
+                    <f:validateRequired />
+                </h:selectOneRadio>
+                <h:message for="gender" style="color:red;"></h:message>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="address" class="control-label">Address</h:outputLabel>
+                <h:inputTextarea id="address" value="#{editUser.address}" cols="50" rows="5" class="form-control"
+                                 required="true" requiredMessage="Address is required">
+                    <f:validateRequired />
+                </h:inputTextarea>
+                <h:message for="address" style="color:red;"></h:message>
+            </div>
+
+            <div class="form-group text-center">
+                <h:commandButton value="Save" class="btn btn-success" style="width: 80px;"
+                                 action="#{user.save()}" process="@form" />
+                <h:link outcome="index" value="View Users Record List" class="btn btn-primary" />
+            </div>
+
+        </h:form>
+
+
+    </div>
+</div>
+
+
+
+
+<h:body>
+
+
+
+
+
+
+</h:body>
+</html>
